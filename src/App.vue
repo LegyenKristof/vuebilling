@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Tablazat :sorok="rows" @hozzaad="hozzaad" @torol="torol"></Tablazat>
+    <Tablazat :sorok="rows" @hozzaad="hozzaad" @torol="torol" @mentes="mentes"></Tablazat>
   </div>
 </template>
 
@@ -43,8 +43,19 @@ export default {
         this.rows.push({title: e.title, price: e.price, quantity: e.quantity})
     },
     torol(e){
-      this.rows = this.rows.filter(function(item) {
-        return item.title != e
+      this.rows = this.rows.filter(function(sor) {
+        return sor.title != e
+      })
+    },
+    mentes(e){
+      this.rows.map(function (sor) {
+        if(sor.title != e.old.title || sor.price != e.old.price || sor.quantity != e.old.quantity){
+          return sor
+        }
+        sor.title = e.new.title
+        sor.price = e.new.price
+        sor.quantity = e.new.quantity
+        return sor
       })
     }
   }

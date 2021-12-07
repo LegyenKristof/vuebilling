@@ -7,7 +7,7 @@
               <th>Quantity</th>
               <th>Operations</th>
           </tr>
-          <Sor v-for="sor in sorok" :key="sor.title" :sor="sor" @torol="torol"></Sor>
+          <Sor v-for="sor in sorok" :key="sor.title" :sor="sor" @torol="torol" @mentes="mentes"></Sor>
           <tr>
               <td><input type="text" v-model="title"></td>
               <td><input type="number" v-model="price"></td>
@@ -42,6 +42,9 @@ export default {
         },
         torol(e){
             this.$emit("torol", e)
+        },
+        mentes(e){
+            this.$emit("mentes", e)
         }
     }
 }
