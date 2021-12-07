@@ -10,12 +10,16 @@
           </tr>
           <Sor v-for="sor in sorok" :key="sor.title" :sor="sor" @torol="torol" @mentes="mentes"></Sor>
           <tr>
+              <td colspan="3">A raktárban tárolt tételek összértéke:</td>
+              <td>{{osszertek}}</td>
+          </tr>
+          <tr>
               <td><input type="text" v-model="title"></td>
               <td><input type="number" v-model="price"></td>
               <td><input type="number" v-model="quantity"></td>
               <td></td>
               <td><button @click="hozzaad">Hozzáad</button></td>
-          </tr>
+          </tr>          
       </table>
   </div>
 </template>
@@ -24,7 +28,7 @@
 import Sor from "./Sor.vue"
 
 export default {
-    props: ["sorok"],
+    props: ["sorok", "osszertek"],
     components:{
         Sor
     },

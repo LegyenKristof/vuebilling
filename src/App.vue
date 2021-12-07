@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Tablazat :sorok="rows" @hozzaad="hozzaad" @torol="torol" @mentes="mentes"></Tablazat>
+    <Tablazat :sorok="rows" @hozzaad="hozzaad" @torol="torol" @mentes="mentes" :osszertek="osszertek"></Tablazat>
   </div>
 </template>
 
@@ -35,17 +35,20 @@ export default {
           price: 45120,
           quantity: 321
         },
-      ]
+      ],
+      osszertek: 10
     }
   },
   methods: {
     hozzaad(e){
         this.rows.push({title: e.title, price: e.price, quantity: e.quantity})
+        this.osszertekKiszamol()
     },
     torol(e){
       this.rows = this.rows.filter(function(sor) {
         return sor.title != e
       })
+      this.osszertekKiszamol()
     },
     mentes(e){
       this.rows.map(function (sor) {
@@ -57,7 +60,17 @@ export default {
         sor.quantity = e.new.quantity
         return sor
       })
+      this.osszertekKiszamol()
+    },
+    osszertekKiszamol(){
+      this.osszertek = 0
+      for(let i = 0; i < this.rows.length; i++){
+        this.osszertek += (this.rows[i].price * this.rows[i].quantity)
+      }
     }
+  },
+  created(){
+    this.osszertekKiszamol()
   }
 }
 </script>
