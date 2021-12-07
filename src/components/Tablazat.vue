@@ -6,15 +6,23 @@
               <th>Price</th>
               <th>Quantity</th>
           </tr>
-          <tr v-for="sor in sorok" v-bind:key="sor.title">
-              <td v-for="adat in sor" v-bind:key="adat">{{adat}}</td>
+          <Sor v-for="sor in sorok" :key="sor.title" :sor="sor"></Sor>
+          <tr>
+              <th><input type="text"></th>
+              <th><input type="text"></th>
+              <th><input type="text"></th>
           </tr>
       </table>
   </div>
 </template>
 
 <script>
+import Sor from "./Sor.vue"
+
 export default {
-    props: ["sorok"]
+    props: ["sorok"],
+    components:{
+        Sor
+    }
 }
 </script>
