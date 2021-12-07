@@ -1,6 +1,6 @@
 <template>
     <tr>
-        <td v-for="adat in sor" v-bind:key="adat">{{adat}}</td>
+        <td v-for="adat in sor" :key="adat">{{adat}}</td>
     </tr>
 </template>
 

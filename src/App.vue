@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Tablazat :sorok="rows"></Tablazat>
+    <Tablazat :sorok="rows" @hozzaad="hozzaad"></Tablazat>
   </div>
 </template>
 
@@ -36,6 +36,11 @@ export default {
           quantity: 321
         },
       ]
+    }
+  },
+  methods: {
+    hozzaad(e){
+        this.rows.push({title: e.title, price: e.price, quantity: e.quantity})
     }
   }
 }
