@@ -3,10 +3,12 @@
         <td v-if="!edit">{{sor.title}}</td>
         <td v-if="!edit">{{sor.price}}</td>
         <td v-if="!edit">{{sor.quantity}}</td>
+        <td v-if="!edit">{{sor.quantity * sor.price}}</td>
         <td v-if="!edit"><button @click="torol">X</button><button @click="modosit">Edit</button></td>
         <td v-if="edit"><input type="text" v-model="title"></td>
         <td v-if="edit"><input type="number" v-model="price"></td>
         <td v-if="edit"><input type="number" v-model="quantity"></td>
+        <td v-if="edit"></td>
         <td v-if="edit"><button @click="mentes">Save</button></td>
     </tr>
 </template>

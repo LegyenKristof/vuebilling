@@ -5,6 +5,7 @@
               <th>Title</th>
               <th>Price</th>
               <th>Quantity</th>
+              <th>Összérték</th>
               <th>Operations</th>
           </tr>
           <Sor v-for="sor in sorok" :key="sor.title" :sor="sor" @torol="torol" @mentes="mentes"></Sor>
@@ -12,6 +13,7 @@
               <td><input type="text" v-model="title"></td>
               <td><input type="number" v-model="price"></td>
               <td><input type="number" v-model="quantity"></td>
+              <td></td>
               <td><button @click="hozzaad">Hozzáad</button></td>
           </tr>
       </table>
