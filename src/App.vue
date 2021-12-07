@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Tablazat :sorok="rows"></Tablazat>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Tablazat from './components/Tablazat.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Tablazat
   },
   data() {
     return {
