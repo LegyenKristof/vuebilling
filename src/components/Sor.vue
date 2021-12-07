@@ -1,12 +1,17 @@
 <template>
     <tr>
         <td v-for="adat in sor" :key="adat">{{adat}}</td>
-        <td><button>X</button><button>Edit</button></td>
+        <td><button @click="torol">X</button><button>Edit</button></td>
     </tr>
 </template>
 
 <script>
 export default {
-    props: ["sor"]
+    props: ["sor"],
+    methods: {
+        torol(){
+            this.$emit("torol", this.sor.title)
+        }
+    }
 }
 </script>

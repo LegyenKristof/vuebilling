@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Tablazat :sorok="rows" @hozzaad="hozzaad"></Tablazat>
+    <Tablazat :sorok="rows" @hozzaad="hozzaad" @torol="torol"></Tablazat>
   </div>
 </template>
 
@@ -41,6 +41,11 @@ export default {
   methods: {
     hozzaad(e){
         this.rows.push({title: e.title, price: e.price, quantity: e.quantity})
+    },
+    torol(e){
+      this.rows = this.rows.filter(function(item) {
+        return item.title != e
+      })
     }
   }
 }
