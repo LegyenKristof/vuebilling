@@ -5,6 +5,7 @@
               <th>Title</th>
               <th>Price</th>
               <th>Quantity</th>
+              <th>Operations</th>
           </tr>
           <Sor v-for="sor in sorok" :key="sor.title" :sor="sor"></Sor>
           <tr>
