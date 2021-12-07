@@ -52,7 +52,7 @@ export default {
     },
     mentes(e){
       this.rows.map(function (sor) {
-        if(sor.title != e.old.title || sor.price != e.old.price || sor.quantity != e.old.quantity){
+        if(sor.title != e.old.title){
           return sor
         }
         sor.title = e.new.title
